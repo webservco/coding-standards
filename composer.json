@@ -15,12 +15,12 @@
         }
     ],
     "require" : {
-        "php" : "^7.4 || ^8.1"
-    },
-    "require-dev": {
+        "php" : "^7.4 || ^8.1",
         "squizlabs/php_codesniffer": "^3",
         "slevomat/coding-standard": "^8",
         "phpcompatibility/php-compatibility": "^9"
+    },
+    "require-dev": {
     },
     "config": {
         "allow-plugins": {

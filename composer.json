@@ -1,0 +1,30 @@
+{
+    "name": "webservco/coding-standards",
+    "type": "library",
+    "description": "Custom, opinionated coding standards based on PSR12, SlevomatCodingStandard, and PHPCompatibility.",
+    "keywords": [
+        "webservco",
+        "coding-standard"
+    ],
+    "homepage" : "https://webserv.co",
+    "license" : "MIT",
+    "authors" : [
+        {
+            "name" : "Radu Maier",
+            "email" : "ariademur@webserv.co"
+        }
+    ],
+    "require" : {
+        "php" : "^7.4 || ^8.1"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3",
+        "slevomat/coding-standard": "^8",
+        "phpcompatibility/php-compatibility": "^9"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

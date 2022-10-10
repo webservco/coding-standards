@@ -352,6 +352,7 @@ return [
         'public',
         'src',
         'tests',
+        'vendor/webservco',
     ],
 
     // A list of individual files to include in analysis

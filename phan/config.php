@@ -350,7 +350,7 @@ return [
     'directory_list' => [
         'config',
         'public',
-        'src/WebServCo',
+        'src',
         'tests',
     ],
 

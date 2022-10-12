@@ -26,7 +26,7 @@ Example configuration file `.phpcs/php-coding-standard.xml`:
 <?xml version="1.0"?>
 <ruleset name="WebServCo-CodingStandard-PHP81">
 	<description>Custom, opinionated coding standards based on PSR12, SlevomatCodingStandard, and PHPCompatibility.</description>
-    <rule ref="vendor/webservco/coding-standards/phpcs/ruleset-php81.xml">
+    <rule ref="vendor/webservco/coding-standards/phpcs/ruleset-psr-php81-slevomat.xml">
         <properties>
 			<property name="rootNamespaces" type="array">
 				<element key="src/Project" value="Project" />

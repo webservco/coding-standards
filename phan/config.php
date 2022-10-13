@@ -352,6 +352,8 @@ return [
         'public',
         'src',
         'tests',
+        'vendor/fig',
+        'vendor/psr',
         'vendor/webservco',
     ],
 

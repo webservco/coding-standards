@@ -2,6 +2,11 @@
 <ruleset name="WebServCo-CodingStandard-PHP81">
 	<description>Custom, opinionated coding standards based on PSR12 and PHPCompatibility.</description>
 
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+    <arg name="parallel" value="8"/>
+
     <!-- PHPCompatibility -->
     <rule ref="PHPCompatibility"/>
 	<config name="testVersion" value="8.1"/>

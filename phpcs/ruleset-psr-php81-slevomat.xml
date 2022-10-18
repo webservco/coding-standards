@@ -82,13 +82,19 @@
         "Expected 0 lines between different types of use statement, found 1." -->
         <exclude name="SlevomatCodingStandard.Namespaces.UseSpacing.IncorrectLinesCountBetweenDifferentTypeOfUse" />
 
-        <!-- Personal preference; improve readability.
+        <!-- Personal preference; improve readability. Also not required, see below.
         "Use of numeric literal separator is disallowed." -->
         <exclude name="SlevomatCodingStandard.Numbers.DisallowNumericLiteralSeparator.DisallowedNumericLiteralSeparator" />
+
+        <!-- Personal preference; causes extra work (eg search for ids).
+        "Use of numeric literal separator is required." -->
+        <exclude name="SlevomatCodingStandard.Numbers.RequireNumericLiteralSeparator.RequiredNumericLiteralSeparator"/>
 
         <!-- Conflicts with PSR12.
         "Expected strict_types = 1, found strict_types=1." -->
 		<exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectStrictTypesFormat" />
+
+
 	</rule>
     <!-- Personal preference: require classes, functions and constants to be "used"; consistency. -->
     <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">

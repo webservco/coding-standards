@@ -43,6 +43,14 @@
         <!-- "Reports use of superfluous suffix "Trait" for traits." -->
         <exclude name="SlevomatCodingStandard.Classes.SuperfluousTraitNaming.SuperfluousSuffix" />
 
+        <!-- Personal preference; Using this rule forces to add non-useful comments.
+        Example: using @var requires multi-line comment syntax in order to be parsed.
+        "Found multi-line doc comment with single line content, use one-line doc comment instead."
+        "Found multi-line comment for property [...] with single line content, use one-line comment instead."
+        -->
+        <exclude name="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment" />
+        <exclude name="SlevomatCodingStandard.Commenting.RequireOneLinePropertyDocComment.MultiLinePropertyComment" />
+
         <!-- Conflicts with PSR12.
         "Expected 1 line after "case", found 0." -->
         <exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountAfterControlStructure" />

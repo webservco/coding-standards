@@ -16,15 +16,24 @@
     <rule ref="rulesets/design.xml" />
     <rule ref="rulesets/naming.xml">
         <!-- Need to exclude rule in order to have cusotm configuration for it -->
+        <exclude name="LongClassName" />
         <exclude name="LongVariable" />
     </rule>
     <!-- Custom rule configuration -->
+    <rule ref="rulesets/naming.xml/LongClassName">
+        <properties>
+            <!-- https://phpmd.org//rules//naming.html#longvariable
+            "Comma-separated list of suffixes that will not count in the length of the variable name.
+            Only the first matching suffix will be subtracted." -->
+            <property name="subtract-suffixes" value="Class,Factory,Instantiator,Interface" />
+        </properties>
+    </rule>
     <rule ref="rulesets/naming.xml/LongVariable">
         <properties>
             <!-- https://phpmd.org//rules//naming.html#longvariable
             "Comma-separated list of suffixes that will not count in the length of the variable name.
             Only the first matching suffix will be subtracted." -->
-            <property name="subtract-suffixes" value="Factory" />
+            <property name="subtract-suffixes" value="Class,Factory,Instantiator,Interface" />
         </properties>
     </rule>
     <rule ref="rulesets/unusedcode.xml" />

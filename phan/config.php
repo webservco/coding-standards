@@ -352,9 +352,11 @@ return [
     'directory_list' => [
         'config',
         'public',
+        'resources',
         'src',
         'tests',
         'vendor/fig',
+        'vendor/phpunit/phpunit/src',
         'vendor/psr',
         'vendor/webservco',
     ],

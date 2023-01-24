@@ -1,18 +1,14 @@
 <?xml version="1.0"?>
-<!--
-    findUnusedVariablesAndParams="true"
-    findUnusedCode="true"
-    findUnusedPsalmSuppress="true"
 
-    reportInfo
-    "When false, Psalm will not consider issue at lower level than errorLevel as info (they will be suppressed instead)."
--->
 <psalm
     errorLevel="1"
 
     ensureArrayStringOffsetsExist="true"
     ensureArrayIntOffsetsExist="true"
-
+    findUnusedBaselineEntry="true"
+    findUnusedCode="false"
+    findUnusedVariablesAndParams="true"
+    findUnusedPsalmSuppress="true"
     resolveFromConfigFile="false"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"

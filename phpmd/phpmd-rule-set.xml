@@ -25,7 +25,7 @@
             <!-- https://phpmd.org//rules//naming.html#longvariable
             "Comma-separated list of suffixes that will not count in the length of the variable name.
             Only the first matching suffix will be subtracted." -->
-            <property name="subtract-suffixes" value="Class,Container,Controller,Factory,Helper,Instantiator,Interface,Module,Processor" />
+            <property name="subtract-suffixes" value="Class,Container,Controller,Factory,Helper,Instantiator,Instantiators,Interface,Module,Processor" />
         </properties>
     </rule>
     <rule ref="rulesets/naming.xml/LongVariable">
@@ -34,7 +34,7 @@
             <!-- https://phpmd.org//rules//naming.html#longvariable
             "Comma-separated list of suffixes that will not count in the length of the variable name.
             Only the first matching suffix will be subtracted." -->
-            <property name="subtract-suffixes" value="Class,Container,Controller,Factory,Helper,Instantiator,Interface,Module,Processor" />
+            <property name="subtract-suffixes" value="Class,Container,Controller,Factory,Helper,Instantiator,Instantiators,Interface,Module,Processor" />
         </properties>
     </rule>
     <rule ref="rulesets/unusedcode.xml" />

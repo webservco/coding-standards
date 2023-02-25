@@ -88,7 +88,8 @@ Composer scripts example:
 ```json
 {
 	"scripts": {
-		"test" : "vendor/bin/phpunit --testdox --colors=always --configuration vendor/webservco/coding-standards/phpunit/phpunit-10.xml --display-deprecations --display-notices --display-warnings"
+		"test" : "vendor/bin/phpunit --colors=always --configuration vendor/webservco/coding-standards/phpunit/phpunit-10.xml --display-deprecations --display-errors --display-incomplete --display-notices --display-skipped --display-warnings",
+        "test:dox" : "@test --testdox"
 	}
 }
 ```
@@ -97,7 +98,7 @@ Usage:
 
 ```shell
 ddev xdebug on
-clear && ddev exec XDEBUG_MODE=coverage \composer test:dox
+clear && ddev exec XDEBUG_MODE=coverage composer test:dox
 ```
 ---
 

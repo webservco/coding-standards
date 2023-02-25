@@ -12,7 +12,7 @@ Custom, opinionated coding standards based on [PSR12](https://www.php-fig.org/ps
 composer require --dev webservco/coding-standards @dev
 ```
 
-Optionally install any of the dependencies from `require-dev` that you wish to use in yout project.
+Optionally install any of the dependencies from `require-dev` that you wish to use in your project.
 
 ---
 

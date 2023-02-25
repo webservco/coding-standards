@@ -114,4 +114,15 @@
             <property name="allowFallbackGlobalConstants" value="false" />
         </properties>
     </rule>
+    <!-- Fix error if using PHP attributes.
+    Same issue: https://github.com/slevomat/coding-standard/issues/1457
+    orderAlphabetically has default value "false" according to docs, however if not set to "true", and error is raised:
+    "An error occurred during processing; checking has been aborted. The error message was: Neither manual or alphabetical order is set. (Internal.Exception)"
+    Workaround: set "true"
+     -->
+    <rule ref="SlevomatCodingStandard.Attributes.AttributesOrder">
+        <properties>
+            <property name="orderAlphabetically" value="true" />
+        </properties>
+    </rule>
 </ruleset>

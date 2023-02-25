@@ -88,9 +88,7 @@ Composer scripts example:
 ```json
 {
 	"scripts": {
-		"test": "vendor/bin/phpunit --colors=always --configuration vendor/webservco/coding-standards/phpunit/phpunit-10.xml --display-deprecations --display-notices --display-warnings",
-
-		"test:dox" : "vendor/bin/phpunit --testdox --configuration vendor/webservco/coding-standards/phpunit/phpunit-10.xml --display-deprecations --display-notices --display-warnings"
+		"test" : "vendor/bin/phpunit --testdox --colors=always --configuration vendor/webservco/coding-standards/phpunit/phpunit-10.xml --display-deprecations --display-notices --display-warnings"
 	}
 }
 ```

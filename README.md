@@ -12,15 +12,25 @@ Custom, opinionated coding standards based on [PSR12](https://www.php-fig.org/ps
 composer require --dev webservco/coding-standards @dev
 ```
 
-Optionally install any of the dependencies from `require-dev` that you wish to use in your project.
+Optionally, install any of the dependencies from `require-dev` that you wish to use in your project.
 
 ---
 
-## Usage
+## Components
+
+## [Phan](https://github.com/phan/phan)
+
+Usage:
+
+```shell
+vendor/bin/phan --config-file vendor/webservco/coding-standards/phan/config.php
+```
+
+---
 
 ## [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 
-Example configuration file `.phpcs/php-coding-standard.xml`:
+Example configuration file `.phpcs/php-coding-standard.xml`, to be placed in own project:
 
 ```xml
 <?xml version="1.0"?>
@@ -37,12 +47,68 @@ Example configuration file `.phpcs/php-coding-standard.xml`:
 </ruleset>
 ```
 
+Usage:
+
+```shell
+vendor/bin/phpcs --standard=.phpcs/php-coding-standard.xml --extensions=php -sp bin config public resources src tests
+```
+
+Rulesets:
+
+- `phpcs/ruleset-psr-php81.xml`: PHP 8.1, PSR-12;
+- `phpcs/ruleset-psr-php81-slevomat.xml`: PHP 8.1, PSR-12, Slevomat;
+
+---
+
+## [PHPMD](https://github.com/phpmd/phpmd)
+
+Usage:
+
+```shell
+vendor/bin/phpmd bin,config,public,resources,src,tests json vendor/webservco/coding-standards/phpmd/phpmd-rule-set.xml
+
+```
+
+---
+
+## [PHPStan](https://github.com/phpstan/phpstan)
+
+Usage:
+
+```shell
+vendor/bin/phpstan analyse bin config public resources src tests --ansi -c vendor/webservco/coding-standards/phpstan/phpstan.neon --level=max
+```
+
 ---
 
 ## [PHPUnit](https://phpunit.de/)
 
-Since it is not possible to configure the working directory in PHPUnit, a default configuration file can not be provided.
+Composer scripts example:
 
-An example configuration file can be found in the component skeleton project.
+```json
+{
+	"scripts": {
+		"test": "vendor/bin/phpunit --colors=always --configuration vendor/webservco/coding-standards/phpunit/phpunit-10.xml --display-deprecations --display-notices --display-warnings",
+
+		"test:dox" : "vendor/bin/phpunit --testdox --configuration vendor/webservco/coding-standards/phpunit/phpunit-10.xml --display-deprecations --display-notices --display-warnings"
+	}
+}
+```
+
+Usage:
+
+```shell
+ddev xdebug on
+clear && ddev exec XDEBUG_MODE=coverage \composer test:dox
+```
+---
+
+## [Psalm](https://github.com/vimeo/psalm)
+
+Usage:
+
+```shell
+vendor/bin/psalm --config=vendor/webservco/coding-standards/psalm/psalm.xml --no-diff
+```
 
 ---

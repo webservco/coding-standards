@@ -1,4 +1,6 @@
 parameters:
     treatPhpDocTypesAsCertain: false
 includes:
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/extension.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/rules.neon
     - %currentWorkingDirectory%/vendor/phpstan/phpstan-strict-rules/rules.neon

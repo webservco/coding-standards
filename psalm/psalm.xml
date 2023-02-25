@@ -15,12 +15,13 @@
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
 >
     <projectFiles>
+        <!-- Directory structure based on "pds/skeleton", excluding "./docs" which should not contain PHP files. -->
         <directory name="./bin" />
-        <directory name="./cli" />
         <directory name="./config" />
         <directory name="./public" />
         <directory name="./resources" />
         <directory name="./src" />
+        <directory name="./tests" />
         <ignoreFiles>
             <directory name="./vendor" />
         </ignoreFiles>

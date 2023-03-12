@@ -18,6 +18,7 @@
         <!-- Need to exclude rule in order to have custom configuration for it -->
         <exclude name="LongClassName" />
         <exclude name="LongVariable" />
+        <exclude name="ShortVariable" />
     </rule>
     <!-- Custom rule configuration -->
     <rule ref="rulesets/naming.xml/LongClassName">
@@ -32,6 +33,11 @@
         <properties>
             <!-- default is 20, set 40 as the default to `rulesets/naming.xml/LongClassName`, then hopefully suffix list is not needed -->
             <property name="maximum" value="40" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/naming.xml/ShortVariable">
+        <properties>
+            <property name="exceptions" value="id" />
         </properties>
     </rule>
     <rule ref="rulesets/unusedcode.xml" />

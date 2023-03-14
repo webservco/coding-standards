@@ -1,6 +1,6 @@
 {
     "name": "webservco/coding-standards",
-    "type": "library",
+    "type" : "phpcodesniffer-standard",
     "description": "Custom, opinionated coding standards based on PSR12, SlevomatCodingStandard, and PHPCompatibility.",
     "keywords": [
         "webservco",

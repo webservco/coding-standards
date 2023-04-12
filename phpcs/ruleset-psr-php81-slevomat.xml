@@ -68,6 +68,10 @@
         "Use of non-capturing catch is disallowed." -->
         <exclude name="SlevomatCodingStandard.Exceptions.DisallowNonCapturingCatch.DisallowedNonCapturingCatch" />
 
+        <!-- Personal preference: use named arguments.
+        "Named arguments are disallowed, usage of named argument "..." found." -->
+        <exclude name="SlevomatCodingStandard.Functions.DisallowNamedArguments.DisallowedNamedArgument" />
+
         <!-- Personal preference; not relevant for PHP 8; opposite error if fixed.
         "Trailing comma after the last parameter in function call is disallowed". -->
 		<exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall.DisallowedTrailingComma" />

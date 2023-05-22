@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<ruleset name="WebServCo-CodingStandard-PHP82-Slevomat">
+	<description>Custom, opinionated coding standards based on PSR12, SlevomatCodingStandard, and PHPCompatibility.</description>
+
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+    <arg name="parallel" value="8"/>
+
+    <!-- PHPCompatibility -->
+    <rule ref="PHPCompatibility"/>
+	<config name="testVersion" value="8.2"/>
+
+    <!-- PSR12 -->
+	<rule ref="PSR12"></rule>
+
+    <!-- SlevomatCodingStandard -->
+	<rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/ruleset.xml">
+
+        <!-- Personal preference. Take advantage of PHP 8 feature.
+        "Disallows usage of constructor property promotion." -->
+        <exclude name="SlevomatCodingStandard.Classes.DisallowConstructorPropertyPromotion.DisallowedConstructorPropertyPromotion" />
+
+        <!-- Conflicts with PSR12.
+        "There must be one empty line after interface opening brace." -->
+		<exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces.NoEmptyLineAfterOpeningBrace" />
+
+        <!-- Conflicts with PSR12.
+        "There must be one empty line before interface closing brace." -->
+		<exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces.NoEmptyLineBeforeClosingBrace" />
+
+        <!-- Conflicts with PSR12.
+        "Expected 1 line before first use statement, found 0." -->
+        <exclude name="SlevomatCodingStandard.Classes.TraitUseSpacing.IncorrectLinesCountBeforeFirstUse" />
+
+        <!-- Personal preference; consistency and clarity; PSR uses the same in examples. -->
+        <!-- "Reports use of superfluous prefix or suffix "Abstract" for abstract classes." -->
+		<exclude name="SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming.SuperfluousPrefix" />
+        <!-- "Reports use of superfluous suffix "Exception" for exceptions." -->
+		<exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix" />
+        <!-- "Reports use of superfluous prefix or suffix "Interface" for interfaces." -->
+		<exclude name="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming.SuperfluousSuffix" />
+        <!-- "Reports use of superfluous suffix "Trait" for traits." -->
+        <exclude name="SlevomatCodingStandard.Classes.SuperfluousTraitNaming.SuperfluousSuffix" />
+
+        <!-- Personal preference; Using this rule forces to add non-useful comments.
+        Example: using @var requires multi-line comment syntax in order to be parsed.
+        "Found multi-line doc comment with single line content, use one-line doc comment instead."
+        "Found multi-line comment for property [...] with single line content, use one-line comment instead."
+        -->
+        <exclude name="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment" />
+        <exclude name="SlevomatCodingStandard.Commenting.RequireOneLinePropertyDocComment.MultiLinePropertyComment" />
+
+        <!-- Conflicts with PSR12.
+        "Expected 1 line after "case", found 0." -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountAfterControlStructure" />
+        <exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountBeforeControlStructure" />
+
+        <!-- Conflicts with PSR12.
+        "Useless parentheses in "new"." -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.NewWithoutParentheses.UselessParentheses" />
+
+        <!-- Personal prefrence; not relevant since using strict comparison.
+        "Yoda comparison is required." -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison.RequiredYodaComparison" />
+
+        <!-- Personal preference; take advantage of PHP 8 feature
+        "Use of non-capturing catch is disallowed." -->
+        <exclude name="SlevomatCodingStandard.Exceptions.DisallowNonCapturingCatch.DisallowedNonCapturingCatch" />
+
+        <!-- Personal preference: use named arguments.
+        "Named arguments are disallowed, usage of named argument "..." found." -->
+        <exclude name="SlevomatCodingStandard.Functions.DisallowNamedArguments.DisallowedNamedArgument" />
+
+        <!-- Personal preference; not relevant for PHP 8; opposite error if fixed.
+        "Trailing comma after the last parameter in function call is disallowed". -->
+		<exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall.DisallowedTrailingComma" />
+
+        <!-- Personal preference; not relevant for PHP 8; opposite error if fixed.
+        "Trailing comma after the last parameter in function declaration is disallowed.". -->
+		<exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration.DisallowedTrailingComma" />
+
+        <!-- Personal preference: require classes, functions and constants to be "used"; consistency. -->
+        <!-- "Constant [..] should be referenced via a fully qualified name." -->
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants.NonFullyQualified" />
+        <!-- "Function [..] should be referenced via a fully qualified name.." -->
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions.NonFullyQualified" />
+        <!-- "Exception [..] should be referenced via a fully qualified name." -->
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions.NonFullyQualifiedException" />
+        <!-- "Type [..] should not be used, but referenced via a fully qualified name." -->
+        <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces.NonFullyQualified" />
+
+        <!-- Conflicts with PSR12.
+        "Expected 0 lines between different types of use statement, found 1." -->
+        <exclude name="SlevomatCodingStandard.Namespaces.UseSpacing.IncorrectLinesCountBetweenDifferentTypeOfUse" />
+
+        <!-- Personal preference; improve readability. Also not required, see below.
+        "Use of numeric literal separator is disallowed." -->
+        <exclude name="SlevomatCodingStandard.Numbers.DisallowNumericLiteralSeparator.DisallowedNumericLiteralSeparator" />
+
+        <!-- Personal preference; causes extra work (eg search for ids).
+        "Use of numeric literal separator is required." -->
+        <exclude name="SlevomatCodingStandard.Numbers.RequireNumericLiteralSeparator.RequiredNumericLiteralSeparator"/>
+
+        <!-- Conflicts with PSR12.
+        "Expected strict_types = 1, found strict_types=1." -->
+		<exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectStrictTypesFormat" />
+
+
+	</rule>
+    <!-- Personal preference: require classes, functions and constants to be "used"; consistency. -->
+    <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
+        <properties>
+            <property name="allowFullyQualifiedGlobalClasses" value="false" />
+            <property name="allowFullyQualifiedGlobalFunctions" value="false" />
+            <property name="allowFullyQualifiedGlobalConstants" value="false" />
+            <property name="allowFallbackGlobalFunctions" value="false" />
+            <property name="allowFallbackGlobalConstants" value="false" />
+        </properties>
+    </rule>
+    <!-- Fix error if using PHP attributes.
+    Same issue: https://github.com/slevomat/coding-standard/issues/1457
+    orderAlphabetically has default value "false" according to docs, however if not set to "true", and error is raised:
+    "An error occurred during processing; checking has been aborted. The error message was: Neither manual or alphabetical order is set. (Internal.Exception)"
+    Workaround: set "true"
+     -->
+    <rule ref="SlevomatCodingStandard.Attributes.AttributesOrder">
+        <properties>
+            <property name="orderAlphabetically" value="true" />
+        </properties>
+    </rule>
+</ruleset>

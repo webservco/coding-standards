@@ -64,6 +64,14 @@
         "Named arguments are disallowed, usage of named argument "..." found." -->
         <exclude name="SlevomatCodingStandard.Functions.DisallowNamedArguments.DisallowedNamedArgument" />
 
+        <!-- Personal preference; not relevant for PHP 8 (>= PHP 7.3); opposite error if fixed.
+        "Trailing comma after the last parameter in function call is disallowed". -->
+		<exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall.DisallowedTrailingComma" />
+
+        <!-- Personal preference; not relevant for PHP 8 (>= PHP 7.3); opposite error if fixed.
+        "Trailing comma after the last parameter in function declaration is disallowed.". -->
+		<exclude name="SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration.DisallowedTrailingComma" />
+
         <!-- Personal preference: require classes, functions and constants to be "used"; consistency. -->
         <!-- "Constant [..] should be referenced via a fully qualified name." -->
         <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants.NonFullyQualified" />

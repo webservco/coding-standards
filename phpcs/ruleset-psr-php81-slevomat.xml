@@ -56,9 +56,17 @@
         <exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountAfterControlStructure" />
         <exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountBeforeControlStructure" />
 
+        <!-- Do not enforce one way or the other
+        "Operator ?-> is disallowed." -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.DisallowNullSafeObjectOperator.DisallowedNullSafeObjectOperator" />
+
         <!-- Conflicts with PSR12.
         "Useless parentheses in "new"." -->
         <exclude name="SlevomatCodingStandard.ControlStructures.NewWithoutParentheses.UselessParentheses" />
+
+        <!-- Do not enforce one way or the other
+        "Operator ?-> is required." -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.RequireNullSafeObjectOperator.RequiredNullSafeObjectOperator" />
 
         <!-- Personal prefrence; not relevant since using strict comparison.
         "Yoda comparison is required." -->

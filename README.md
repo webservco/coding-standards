@@ -9,7 +9,7 @@ Custom, opinionated coding standards based on [PSR12](https://www.php-fig.org/ps
 ## Setup
 
 ```shell
-composer require --dev webservco/coding-standards @dev
+composer require --dev webservco/coding-standards
 ```
 
 Optionally, install any of the dependencies from `require-dev` that you wish to use in your project.

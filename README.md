@@ -34,9 +34,9 @@ Example configuration file `.phpcs/php-coding-standard.xml`, to be placed in own
 
 ```xml
 <?xml version="1.0"?>
-<ruleset name="WebServCo-CodingStandard-PHP81">
+<ruleset name="WebServCo-CodingStandard-PHP82">
 	<description>Custom, opinionated coding standards based on PSR12, SlevomatCodingStandard, and PHPCompatibility.</description>
-    <rule ref="vendor/webservco/coding-standards/phpcs/ruleset-psr-php81-slevomat.xml">
+    <rule ref="vendor/webservco/coding-standards/phpcs/ruleset-psr-php82-slevomat.xml">
         <properties>
 			<property name="rootNamespaces" type="array">
 				<element key="src/Project" value="Project" />
@@ -55,8 +55,12 @@ vendor/bin/phpcs --standard=.phpcs/php-coding-standard.xml --extensions=php -sp 
 
 Rulesets:
 
+- `phpcs/ruleset-namespaces.xml`: Slevomat namespace usage;
+- `phpcs/ruleset-psr-php74-slevomat.xml`: PHP 7.4, PSR-12, Slevomat;
 - `phpcs/ruleset-psr-php81.xml`: PHP 8.1, PSR-12;
 - `phpcs/ruleset-psr-php81-slevomat.xml`: PHP 8.1, PSR-12, Slevomat;
+- `phpcs/ruleset-psr-php82.xml`: PHP 8.2, PSR-12;
+- `phpcs/ruleset-psr-php82-slevomat.xml`: PHP 8.2, PSR-12, Slevomat;
 
 ---
 

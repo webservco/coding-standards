@@ -61,6 +61,8 @@ Rulesets:
 - `phpcs/ruleset-psr-php81-slevomat.xml`: PHP 8.1, PSR-12, Slevomat;
 - `phpcs/ruleset-psr-php82.xml`: PHP 8.2, PSR-12;
 - `phpcs/ruleset-psr-php82-slevomat.xml`: PHP 8.2, PSR-12, Slevomat;
+- `phpcs/ruleset-psr-php83.xml`: PHP 8.3, PSR-12;
+- `phpcs/ruleset-psr-php83-slevomat.xml`: PHP 8.3, PSR-12, Slevomat;
 
 ---
 

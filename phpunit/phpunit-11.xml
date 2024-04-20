@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.0/phpunit.xsd"
+  bootstrap="./../../../../vendor/autoload.php"
+  cacheDirectory="./../../../../var/tmp/phpunit/.phpunit.cache"
+  beStrictAboutCoverageMetadata="true"
+  beStrictAboutOutputDuringTests="true"
+  executionOrder="depends,defects"
+  failOnRisky="true"
+  failOnWarning="true"
+  requireCoverageMetadata="true"
+  >
+  <testsuites>
+    <testsuite name="unit">
+      <directory>./../../../../tests/Unit</directory>
+    </testsuite>
+  </testsuites>
+  <coverage includeUncoveredFiles="true" pathCoverage="true">
+    <report>
+      <clover outputFile="./../../../../var/tmp/phpunit/coverage-report.xml"/>
+    </report>
+  </coverage>
+  <logging>
+    <junit outputFile="./../../../../var/tmp/phpunit/tests-report.xml"/>
+  </logging>
+  <source>
+    <include>
+      <directory suffix=".php">./../../../../src</directory>
+    </include>
+  </source>
+</phpunit>
+<!-- Project directory path: "./../../../../" -->

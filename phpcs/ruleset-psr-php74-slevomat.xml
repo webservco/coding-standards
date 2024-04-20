@@ -32,6 +32,8 @@
         <!-- Personal preference; consistency and clarity; PSR uses the same in examples. -->
         <!-- "Reports use of superfluous prefix or suffix "Abstract" for abstract classes." -->
 		<exclude name="SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming.SuperfluousPrefix" />
+        <!-- "Reports use of superfluous suffix "Error" for exceptions." -->
+        <exclude name="SlevomatCodingStandard.Classes.SuperfluousErrorNaming.SuperfluousSuffix" />
         <!-- "Reports use of superfluous suffix "Exception" for exceptions." -->
 		<exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix" />
         <!-- "Reports use of superfluous prefix or suffix "Interface" for interfaces." -->

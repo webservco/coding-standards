@@ -100,6 +100,17 @@
         "Expected strict_types = 1, found strict_types=1." -->
 		<exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectStrictTypesFormat" />
 
+        <!-- Personal preference: prefer clarity
+        ("using variables from the parent scope is always automatic").
+        ($y decalred in parent)
+        Arrow function: `fn($x) => $x + $y;`
+        Anonymous function: `$fn2 = function ($x) use ($y) {
+            return $x + $y;
+        };`
+        Do not enforce usage of arrow function.
+        "Use arrow function." -->
+        <exclude name="SlevomatCodingStandard.Functions.RequireArrowFunction.RequiredArrowFunction" />
+
 
 	</rule>
     <!-- Personal preference: require classes, functions and constants to be "used"; consistency. -->

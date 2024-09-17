@@ -1,0 +1,20 @@
+# Custom PhpStan configuration for Symfony projects
+# Customization: exclude some files
+parameters:
+    treatPhpDocTypesAsCertain: false
+    # level is needed here when using phpStorm (prevent error "No rules detected..")
+    level: max
+    paths:
+        - tests
+    excludePaths:
+        analyse:
+            # External file created by the framework.
+            # Error:
+            # Call to function method_exists() with 'Symfony\\Component\\Dotenv\\Dotenv' and 'bootEnv' will always evaluate to true.
+            # (?) - file might not exist
+            - *tests/bootstrap.php
+
+includes:
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/extension.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/rules.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-strict-rules/rules.neon

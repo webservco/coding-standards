@@ -79,6 +79,11 @@ vendor/bin/phpmd bin,config,public,resources,src,tests json vendor/webservco/cod
 
 ## [PHPStan](https://github.com/phpstan/phpstan)
 
+Symfony support
+- install symfony related packages
+- create `.phpstan/get_doctrine_manager.php`, as in phpstan-doctrine documentation
+- use specific `phpstan-symfony.neon` configuration files
+
 Usage:
 
 ```shell

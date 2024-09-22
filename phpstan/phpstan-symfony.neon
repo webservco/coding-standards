@@ -16,7 +16,10 @@ parameters:
             - *tests/bootstrap.php
 
     doctrine:
+        literalString: true
         objectManagerLoader: %currentWorkingDirectory%/.phpstan/get_doctrine_manager.php
+        reportDynamicQueryBuilders: true
+        reportUnknownTypes: true
     symfony:
         containerXmlPath: %currentWorkingDirectory%/var/cache/dev/App_KernelDevDebugContainer.xml
 

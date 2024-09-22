@@ -1,5 +1,6 @@
 # Custom PhpStan configuration for Symfony projects
 # Customization: exclude some files
+# Customization: Doctrine support
 parameters:
     treatPhpDocTypesAsCertain: false
     # level is needed here when using phpStorm (prevent error "No rules detected..")
@@ -14,7 +15,15 @@ parameters:
             # (?) - file might not exist
             - *tests/bootstrap.php
 
+	doctrine:
+		objectManagerLoader: .phpstan/get_doctrine_manager.php
+    symfony:
+        containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
+
 includes:
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/extension.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-doctrine/extension.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-doctrine/rules.neon
     - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/rules.neon
     - %currentWorkingDirectory%/vendor/phpstan/phpstan-strict-rules/rules.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/extension.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/rules.neon

@@ -15,14 +15,15 @@ parameters:
             # (?) - file might not exist
             - *tests/bootstrap.php
 
-	doctrine:
-		objectManagerLoader: .phpstan/get_doctrine_manager.php
+    doctrine:
+        objectManagerLoader: %currentWorkingDirectory%/.phpstan/get_doctrine_manager.php
     symfony:
-        containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
+        containerXmlPath: %currentWorkingDirectory%/var/cache/dev/App_KernelDevDebugContainer.xml
 
 includes:
     - %currentWorkingDirectory%/vendor/phpstan/phpstan-doctrine/extension.neon
     - %currentWorkingDirectory%/vendor/phpstan/phpstan-doctrine/rules.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/extension.neon
     - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/rules.neon
     - %currentWorkingDirectory%/vendor/phpstan/phpstan-strict-rules/rules.neon
     - %currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/extension.neon

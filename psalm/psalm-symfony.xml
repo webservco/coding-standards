@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<psalm
+        errorLevel="1"
+
+        ensureArrayStringOffsetsExist="true"
+        ensureArrayIntOffsetsExist="true"
+        findUnusedBaselineEntry="true"
+        findUnusedCode="false"
+        findUnusedVariablesAndParams="true"
+        findUnusedPsalmSuppress="true"
+        resolveFromConfigFile="false"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://getpsalm.org/schema/config"
+        xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
+    <projectFiles>
+        <!-- Directory structure based on "pds/skeleton", excluding "./docs" which should not contain PHP files. -->
+        <directory name="./bin" />
+        <directory name="./config" />
+        <directory name="./public" />
+        <directory name="./resources" />
+        <directory name="./src" />
+        <directory name="./tests" />
+        <ignoreFiles>
+            <directory name="./var" />
+            <directory name="./vendor" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <fileExtensions>
+        <extension name=".php" />
+        <extension name=".twig" checker="/vendor/psalm/plugin-symfony/src/Twig/TemplateFileAnalyzer.php"/>
+    </fileExtensions>
+
+    <plugins>
+        <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin"/>
+    </plugins>
+</psalm>

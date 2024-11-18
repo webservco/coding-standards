@@ -356,10 +356,12 @@ return [
         'resources',
         'src',
         'tests',
-        'vendor/fig',
-        'vendor/phpunit/phpunit/src',
-        'vendor/psr',
-        'vendor/webservco',
+        // WSC note:
+        // Using all "vendor" directory to make sure everything is covered.
+        // This is a compromise to be able to use a global config
+        // For best performance implementations should copy this file locally
+        //and set only libraries with code that is extended/referenced
+        'vendor',
     ],
 
     // A list of individual files to include in analysis

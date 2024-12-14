@@ -150,7 +150,7 @@
         </properties>
     </rule>
     <!-- Personal preference: allow 25 lines in a function (default is 20) -->
-    <rule ref="SlevomatCodingStandard.Functions.FunctionLength.FunctionLength">
+    <rule ref="SlevomatCodingStandard.Functions.FunctionLength">
         <properties>
             <property name="maxLinesLength" value="25" />
         </properties>

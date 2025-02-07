@@ -118,7 +118,7 @@
 
         <!-- Personal preference: prefer clarity
         ("using variables from the parent scope is always automatic").
-        ($y decalred in parent)
+        ($y declared in parent)
         Arrow function: `fn($x) => $x + $y;`
         Anonymous function: `$fn2 = function ($x) use ($y) {
             return $x + $y;

@@ -28,7 +28,7 @@ vendor/bin/phan --config-file vendor/webservco/coding-standards/phan/config.php
 
 ---
 
-## [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+## [PHP_CodeSniffer](https://github.com/PHPCSStandards/PHP_CodeSniffer)
 
 Example configuration file `.phpcs/php-coding-standard.xml`, to be placed in own project:
 

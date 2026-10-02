@@ -27,7 +27,7 @@ The versioned rulesets are near-duplicates. A newer version is created by copyin
 
 Every `<exclude>` has a comment that gives the reason (personal preference, PSR12 conflict, etc.) and quotes the sniff's error message. Follow the same format for new excludes.
 
-When you add a new PHP version ruleset, also update the ruleset list in `README.md`. That list currently stops at 8.3, even though the 8.4 files exist.
+When you add a new PHP version ruleset, also update the ruleset list in `README.md`.
 
 ## Verifying changes
 

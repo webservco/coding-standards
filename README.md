@@ -63,6 +63,8 @@ Rulesets:
 - `phpcs/ruleset-psr-php82-slevomat.xml`: PHP 8.2, PSR-12, Slevomat;
 - `phpcs/ruleset-psr-php83.xml`: PHP 8.3, PSR-12;
 - `phpcs/ruleset-psr-php83-slevomat.xml`: PHP 8.3, PSR-12, Slevomat;
+- `phpcs/ruleset-psr-php84.xml`: PHP 8.4, PSR-12;
+- `phpcs/ruleset-psr-php84-slevomat.xml`: PHP 8.4, PSR-12, Slevomat;
 
 ---
 
@@ -81,8 +83,8 @@ vendor/bin/phpmd bin,config,public,resources,src,tests json vendor/webservco/cod
 
 Symfony support
 - install symfony related packages:
-	- (if using Doctrine) "phpstan/phpstan-doctrine": "^1",
-	- "phpstan/phpstan-symfony": "^1",
+	- (if using Doctrine) "phpstan/phpstan-doctrine": "^2",
+	- "phpstan/phpstan-symfony": "^2",
 - (if using Doctrine) create `.phpstan/get_doctrine_manager.php`, as in phpstan-doctrine documentation
 - use specific `phpstan-symfony.neon` or `phpstan-symfony-doctrine.neon` configuration files
 

@@ -271,7 +271,9 @@ return [
     // directories/files, unanalyzable files, or files that
     // can't be removed for whatever reason.
     // (e.g. `'@Test\.php$@'`, or `'@vendor/.*/(tests|Tests)/@'`)
-    'exclude_file_regex' => '@^vendor/.*/(tests?|Tests?)/@',
+    // Also excludes `vendor` directories nested in packages (only present for symlinked "path" repository packages
+    // used in development, eg. `vendor/webservco/view/vendor/`); otherwise their classes would be declared twice.
+    'exclude_file_regex' => '@^vendor/(.*/(tests?|Tests?)/|[^/]+/[^/]+/vendor/)@',
 
     // A list of files that will be excluded from parsing and analysis
     // and will not be read at all.

@@ -10,9 +10,11 @@ Because of this, every path inside these configs is resolved **from the consumin
 
 ## Layout and conventions
 
-- `phpcs/`: one ruleset per PHP target version, in two variants:
-  - `ruleset-psr-phpXY.xml`: PSR12 only (the version is kept in the file name for backwards compatibility; the files are otherwise identical).
-  - `ruleset-psr-phpXY-slevomat.xml`: the same, plus the full Slevomat ruleset with a curated list of `<exclude>`s and property overrides (e.g. `FunctionLength`, `ReferenceUsedNamesOnly`, `AttributesOrder`).
+- `phpcs/`:
+  - `ruleset-psr.xml`: PSR12 only.
+  - `ruleset-psr-slevomat.xml`: the same, plus the full Slevomat ruleset with a curated list of `<exclude>`s and property overrides (e.g. `FunctionLength`, `ReferenceUsedNamesOnly`, `AttributesOrder`).
+  - `ruleset-psr-php74-slevomat.xml`: a standalone copy of the slevomat ruleset for PHP 7.4, without the PHP 8 feature excludes (constructor promotion, nullsafe operator, non-capturing catch).
+  - `ruleset-psr-phpXY.xml` / `ruleset-psr-phpXY-slevomat.xml` (8.1 to 8.4): deprecated wrappers that only include the matching unversioned ruleset via `<rule ref="./ruleset-psr[-slevomat].xml"/>`. They are kept because many projects reference them by name. Do not add rules to them and do not add new versioned files.
   - `ruleset-namespaces.xml`: a standalone set of Slevomat namespace/use rules.
 - `phpstan/`: `phpstan.neon` is the base config (level max, strict, deprecation and phpunit rules). The `-symfony` and `-symfony-doctrine` variants repeat the base settings and add their own extensions/paths. They do not include the base file.
 - `psalm/`: same pattern, with base, symfony and symfony-doctrine variants.
@@ -21,13 +23,9 @@ Because of this, every path inside these configs is resolved **from the consumin
 
 ### Editing the phpcs rulesets
 
-The versioned rulesets are near-duplicates. A newer version is created by copying the previous one and changing the ruleset `name`. A rule change normally has to be **applied to every file of that variant** (for example, the FunctionLength change touched all five `*-slevomat.xml` files). The only intended differences between versions are:
-- the ruleset name;
-- the 7.4 slevomat ruleset does not have the PHP 8 feature excludes (constructor promotion, nullsafe operator, non-capturing catch).
+Rule changes go in `ruleset-psr.xml` or `ruleset-psr-slevomat.xml`; the deprecated versioned wrappers pick them up automatically. A slevomat rule change normally also has to be applied to `ruleset-psr-php74-slevomat.xml`, unless it concerns a PHP 8 feature.
 
 Every `<exclude>` has a comment that gives the reason (personal preference, PSR12 conflict, etc.) and quotes the sniff's error message. Follow the same format for new excludes.
-
-When you add a new PHP version ruleset, also update the ruleset list in `README.md`.
 
 ## Verifying changes
 

@@ -1,12 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="WebServCo-CodingStandard-PHP82">
-	<description>Custom, opinionated coding standards based on PSR12.</description>
+	<description>Deprecated, use ruleset-psr.xml instead. Kept for backwards compatibility.</description>
 
-    <arg name="extensions" value="php"/>
-    <arg name="colors"/>
-    <arg value="sp"/>
-    <arg name="parallel" value="8"/>
-
-    <!-- PSR12 -->
-	<rule ref="PSR12"></rule>
+    <rule ref="./ruleset-psr.xml"/>
 </ruleset>

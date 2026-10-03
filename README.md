@@ -34,9 +34,9 @@ Example configuration file `.phpcs/php-coding-standard.xml`, to be placed in own
 
 ```xml
 <?xml version="1.0"?>
-<ruleset name="WebServCo-CodingStandard-PHP83">
+<ruleset name="Project-CodingStandard">
 	<description>Custom, opinionated coding standards based on PSR12 and SlevomatCodingStandard.</description>
-    <rule ref="vendor/webservco/coding-standards/phpcs/ruleset-psr-php83-slevomat.xml">
+    <rule ref="vendor/webservco/coding-standards/phpcs/ruleset-psr-slevomat.xml">
         <properties>
 			<property name="rootNamespaces" type="array">
 				<element key="src/Project" value="Project" />
@@ -55,16 +55,15 @@ vendor/bin/phpcs --standard=.phpcs/php-coding-standard.xml --extensions=php -sp 
 
 Rulesets:
 
+- `phpcs/ruleset-psr.xml`: PSR-12;
+- `phpcs/ruleset-psr-slevomat.xml`: PSR-12, Slevomat;
 - `phpcs/ruleset-namespaces.xml`: Slevomat namespace usage;
-- `phpcs/ruleset-psr-php74-slevomat.xml`: PHP 7.4, PSR-12, Slevomat;
-- `phpcs/ruleset-psr-php81.xml`: PHP 8.1, PSR-12;
-- `phpcs/ruleset-psr-php81-slevomat.xml`: PHP 8.1, PSR-12, Slevomat;
-- `phpcs/ruleset-psr-php82.xml`: PHP 8.2, PSR-12;
-- `phpcs/ruleset-psr-php82-slevomat.xml`: PHP 8.2, PSR-12, Slevomat;
-- `phpcs/ruleset-psr-php83.xml`: PHP 8.3, PSR-12;
-- `phpcs/ruleset-psr-php83-slevomat.xml`: PHP 8.3, PSR-12, Slevomat;
-- `phpcs/ruleset-psr-php84.xml`: PHP 8.4, PSR-12;
-- `phpcs/ruleset-psr-php84-slevomat.xml`: PHP 8.4, PSR-12, Slevomat;
+- `phpcs/ruleset-psr-php74-slevomat.xml`: PHP 7.4, PSR-12, Slevomat (without the PHP 8 feature excludes).
+
+Deprecated, kept for backwards compatibility (they only include the unversioned rulesets above):
+
+- `phpcs/ruleset-psr-php81.xml`, `phpcs/ruleset-psr-php82.xml`, `phpcs/ruleset-psr-php83.xml`, `phpcs/ruleset-psr-php84.xml`: use `phpcs/ruleset-psr.xml`;
+- `phpcs/ruleset-psr-php81-slevomat.xml`, `phpcs/ruleset-psr-php82-slevomat.xml`, `phpcs/ruleset-psr-php83-slevomat.xml`, `phpcs/ruleset-psr-php84-slevomat.xml`: use `phpcs/ruleset-psr-slevomat.xml`.
 
 ---
 

@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<ruleset name="WebServCo-CodingStandard-PHP82">
-	<description>Deprecated, use ruleset-psr.xml instead. Kept for backwards compatibility.</description>
-
-    <rule ref="./ruleset-psr.xml"/>
-</ruleset>

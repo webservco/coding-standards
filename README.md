@@ -57,13 +57,12 @@ Rulesets:
 
 - `phpcs/ruleset-psr.xml`: PSR-12;
 - `phpcs/ruleset-psr-slevomat.xml`: PSR-12, Slevomat;
-- `phpcs/ruleset-namespaces.xml`: Slevomat namespace usage;
-- `phpcs/ruleset-psr-php74-slevomat.xml`: PHP 7.4, PSR-12, Slevomat (without the PHP 8 feature excludes).
+- `phpcs/ruleset-namespaces.xml`: Slevomat namespace usage.
 
 Deprecated, kept for backwards compatibility (they only include the unversioned rulesets above):
 
-- `phpcs/ruleset-psr-php81.xml`, `phpcs/ruleset-psr-php82.xml`, `phpcs/ruleset-psr-php83.xml`, `phpcs/ruleset-psr-php84.xml`: use `phpcs/ruleset-psr.xml`;
-- `phpcs/ruleset-psr-php81-slevomat.xml`, `phpcs/ruleset-psr-php82-slevomat.xml`, `phpcs/ruleset-psr-php83-slevomat.xml`, `phpcs/ruleset-psr-php84-slevomat.xml`: use `phpcs/ruleset-psr-slevomat.xml`.
+- `phpcs/ruleset-psr-php83.xml`, `phpcs/ruleset-psr-php84.xml`: use `phpcs/ruleset-psr.xml`;
+- `phpcs/ruleset-psr-php83-slevomat.xml`, `phpcs/ruleset-psr-php84-slevomat.xml`: use `phpcs/ruleset-psr-slevomat.xml`.
 
 ---
 

@@ -46,7 +46,7 @@ return [
     // then Phan assumes the PHP version which is closest to the minor version
     // of the php executable used to execute Phan.
     //
-    // Automatically inferred from composer.json requirement for "php" of "^8.1"
+    // `null`: use the PHP version that runs Phan.
     'target_php_version' => null,
 
     // If enabled, missing properties will be created when
@@ -321,6 +321,7 @@ return [
         'EmptyStatementListPlugin',
         'StrictComparisonPlugin',
         'LoopVariableReusePlugin',
+        'UnusedSuppressionPlugin',
     ],
 
     // A list of directories that should be parsed for class and

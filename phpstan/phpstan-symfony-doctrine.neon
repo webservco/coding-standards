@@ -1,34 +1,14 @@
-# Custom PhpStan configuration for Symfony projects
-# Customization: exclude some files
+# Custom PhpStan configuration for Symfony projects using Doctrine
+# Extends the Symfony configuration (phpstan-symfony.neon)
 # Customization: Doctrine support
-parameters:
-    treatPhpDocTypesAsCertain: false
-    # level is needed here when using phpStorm (prevent error "No rules detected..")
-    level: max
-    paths:
-        - tests
-    excludePaths:
-        analyse:
-            # External file created by the framework.
-            # Error:
-            # Call to function method_exists() with 'Symfony\\Component\\Dotenv\\Dotenv' and 'bootEnv' will always evaluate to true.
-            # (?) - file might not exist
-            - *tests/bootstrap.php
+includes:
+    - phpstan-symfony.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-doctrine/extension.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-doctrine/rules.neon
 
+parameters:
     doctrine:
         literalString: true
         objectManagerLoader: %currentWorkingDirectory%/.phpstan/get_doctrine_manager.php
         reportDynamicQueryBuilders: true
         reportUnknownTypes: true
-    symfony:
-        containerXmlPath: %currentWorkingDirectory%/var/cache/dev/App_KernelDevDebugContainer.xml
-
-includes:
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-deprecation-rules/rules.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-doctrine/extension.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-doctrine/rules.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/extension.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/rules.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-strict-rules/rules.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/extension.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/rules.neon

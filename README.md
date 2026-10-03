@@ -2,7 +2,7 @@
 
 A collection of coding standards and configuration files.
 
-Custom, opinionated coding standards based on [PSR12](https://www.php-fig.org/psr/psr-12/), [SlevomatCodingStandard](https://github.com/slevomat/coding-standard), and [PHPCompatibility](https://github.com/PHPCompatibility/PHPCompatibility).
+Custom, opinionated coding standards based on [PSR12](https://www.php-fig.org/psr/psr-12/) and [SlevomatCodingStandard](https://github.com/slevomat/coding-standard).
 
 ---
 
@@ -13,6 +13,18 @@ composer require --dev webservco/coding-standards
 ```
 
 Optionally, install any of the dependencies from `require-dev` that you wish to use in your project.
+
+---
+
+## Upgrading from v1
+
+- PHP_CodeSniffer:
+	- the versioned rulesets were removed: replace `phpcs/ruleset-psr-phpXY.xml` with `phpcs/ruleset-psr.xml` and `phpcs/ruleset-psr-phpXY-slevomat.xml` with `phpcs/ruleset-psr-slevomat.xml`;
+	- PHPCompatibility is no longer included: remove `phpcompatibility/php-compatibility` from your project (and any `PHPCompatibility` / `testVersion` lines from your own ruleset), then require `"squizlabs/php_codesniffer": "^4"` to get current Slevomat versions;
+	- newer Slevomat versions add sniffs (e.g. `SlevomatCodingStandard.Classes.ReadonlyClass`), so expect new errors.
+- PHPUnit: only `phpunit/phpunit-12.xml` and `phpunit/phpunit-13.xml` are provided; the `--display-*` options are now set in the configuration files and can be removed from your scripts.
+- PHPStan: stricter checks are enabled (uninitialized properties, callable signatures, possibly nonexistent array offsets, too wide return types, benevolent union types), so expect new errors.
+- Phan: requires Phan 6; `UnusedSuppressionPlugin` is enabled.
 
 ---
 
@@ -34,9 +46,9 @@ Example configuration file `.phpcs/php-coding-standard.xml`, to be placed in own
 
 ```xml
 <?xml version="1.0"?>
-<ruleset name="WebServCo-CodingStandard-PHP83">
-	<description>Custom, opinionated coding standards based on PSR12, SlevomatCodingStandard, and PHPCompatibility.</description>
-    <rule ref="vendor/webservco/coding-standards/phpcs/ruleset-psr-php83-slevomat.xml">
+<ruleset name="Project-CodingStandard">
+	<description>Custom, opinionated coding standards based on PSR12 and SlevomatCodingStandard.</description>
+    <rule ref="vendor/webservco/coding-standards/phpcs/ruleset-psr-slevomat.xml">
         <properties>
 			<property name="rootNamespaces" type="array">
 				<element key="src/Project" value="Project" />
@@ -55,16 +67,9 @@ vendor/bin/phpcs --standard=.phpcs/php-coding-standard.xml --extensions=php -sp 
 
 Rulesets:
 
-- `phpcs/ruleset-namespaces.xml`: Slevomat namespace usage;
-- `phpcs/ruleset-psr-php74-slevomat.xml`: PHP 7.4, PSR-12, Slevomat;
-- `phpcs/ruleset-psr-php81.xml`: PHP 8.1, PSR-12;
-- `phpcs/ruleset-psr-php81-slevomat.xml`: PHP 8.1, PSR-12, Slevomat;
-- `phpcs/ruleset-psr-php82.xml`: PHP 8.2, PSR-12;
-- `phpcs/ruleset-psr-php82-slevomat.xml`: PHP 8.2, PSR-12, Slevomat;
-- `phpcs/ruleset-psr-php83.xml`: PHP 8.3, PSR-12;
-- `phpcs/ruleset-psr-php83-slevomat.xml`: PHP 8.3, PSR-12, Slevomat;
-- `phpcs/ruleset-psr-php84.xml`: PHP 8.4, PSR-12;
-- `phpcs/ruleset-psr-php84-slevomat.xml`: PHP 8.4, PSR-12, Slevomat;
+- `phpcs/ruleset-psr.xml`: PSR-12;
+- `phpcs/ruleset-psr-slevomat.xml`: PSR-12, Slevomat;
+- `phpcs/ruleset-namespaces.xml`: Slevomat namespace usage.
 
 ---
 
@@ -74,7 +79,6 @@ Usage:
 
 ```shell
 vendor/bin/phpmd bin,config,public,resources,src,tests json vendor/webservco/coding-standards/phpmd/phpmd-rule-set.xml
-
 ```
 
 ---
@@ -91,7 +95,7 @@ Symfony support
 Usage:
 
 ```shell
-vendor/bin/phpstan analyse bin config public resources src tests --ansi -c vendor/webservco/coding-standards/phpstan/phpstan.neon --level=max
+vendor/bin/phpstan analyse bin config public resources src tests --ansi -c vendor/webservco/coding-standards/phpstan/phpstan.neon
 ```
 
 ---
@@ -103,7 +107,7 @@ Composer scripts example:
 ```json
 {
 	"scripts": {
-		"test" : "XDEBUG_MODE=coverage vendor/bin/phpunit --colors=always --configuration vendor/webservco/coding-standards/phpunit/phpunit-10.xml --display-deprecations --display-errors --display-incomplete --display-notices --display-skipped --display-warnings",
+		"test" : "XDEBUG_MODE=coverage vendor/bin/phpunit --colors=always --configuration vendor/webservco/coding-standards/phpunit/phpunit-13.xml",
         "test:dox" : "@test --testdox"
 	}
 }

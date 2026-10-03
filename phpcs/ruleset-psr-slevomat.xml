@@ -1,15 +1,11 @@
 <?xml version="1.0"?>
-<ruleset name="WebServCo-CodingStandard-PHP83-Slevomat">
-	<description>Custom, opinionated coding standards based on PSR12, SlevomatCodingStandard, and PHPCompatibility.</description>
+<ruleset name="WebServCo-CodingStandard-Slevomat">
+	<description>Custom, opinionated coding standards based on PSR12 and SlevomatCodingStandard.</description>
 
     <arg name="extensions" value="php"/>
     <arg name="colors"/>
     <arg value="sp"/>
     <arg name="parallel" value="8"/>
-
-    <!-- PHPCompatibility -->
-    <rule ref="PHPCompatibility"/>
-	<config name="testVersion" value="8.3"/>
 
     <!-- PSR12 -->
 	<rule ref="PSR12"></rule>
@@ -115,6 +111,10 @@
         <!-- Conflicts with PSR12.
         "Expected strict_types = 1, found strict_types=1." -->
 		<exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectStrictTypesFormat" />
+
+        <!-- Deprecated sniff, replaced by DNFTypeHintFormat (also included).
+        "This sniff has been deprecated since Slevomat Coding Standard 8.16.0 and will be removed in Slevomat Coding Standard 9.0.0. Use SlevomatCodingStandard.TypeHints.DNFTypeHintFormat instead." -->
+        <exclude name="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat" />
 
         <!-- Personal preference: prefer clarity
         ("using variables from the parent scope is always automatic").

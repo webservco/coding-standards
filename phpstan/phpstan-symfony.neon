@@ -1,12 +1,14 @@
 # Custom PhpStan configuration for Symfony projects
+# Extends the base configuration (phpstan.neon)
 # Customization: exclude some files
-# Customization: Doctrine support
+includes:
+    - phpstan.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/extension.neon
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/rules.neon
+
 parameters:
-    treatPhpDocTypesAsCertain: false
-    # level is needed here when using phpStorm (prevent error "No rules detected..")
-    level: max
     paths:
-        - tests
+        - %currentWorkingDirectory%/tests
     excludePaths:
         analyse:
             # External file created by the framework.
@@ -17,11 +19,3 @@ parameters:
 
     symfony:
         containerXmlPath: %currentWorkingDirectory%/var/cache/dev/App_KernelDevDebugContainer.xml
-
-includes:
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-deprecation-rules/rules.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/extension.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/rules.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-strict-rules/rules.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/extension.neon
-    - %currentWorkingDirectory%/vendor/phpstan/phpstan-symfony/rules.neon

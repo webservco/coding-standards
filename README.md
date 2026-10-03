@@ -19,7 +19,7 @@ Optionally, install any of the dependencies from `require-dev` that you wish to 
 ## Upgrading from v1
 
 - PHP_CodeSniffer:
-	- use `phpcs/ruleset-psr.xml` or `phpcs/ruleset-psr-slevomat.xml`; `ruleset-psr-php83*.xml` and `ruleset-psr-php84*.xml` still work but are deprecated; the PHP 7.4, 8.1 and 8.2 rulesets were removed;
+	- the versioned rulesets were removed: replace `phpcs/ruleset-psr-phpXY.xml` with `phpcs/ruleset-psr.xml` and `phpcs/ruleset-psr-phpXY-slevomat.xml` with `phpcs/ruleset-psr-slevomat.xml`;
 	- PHPCompatibility is no longer included: remove `phpcompatibility/php-compatibility` from your project (and any `PHPCompatibility` / `testVersion` lines from your own ruleset), then require `"squizlabs/php_codesniffer": "^4"` to get current Slevomat versions;
 	- newer Slevomat versions add sniffs (e.g. `SlevomatCodingStandard.Classes.ReadonlyClass`), so expect new errors.
 - PHPUnit: only `phpunit/phpunit-12.xml` and `phpunit/phpunit-13.xml` are provided; the `--display-*` options are now set in the configuration files and can be removed from your scripts.
@@ -70,11 +70,6 @@ Rulesets:
 - `phpcs/ruleset-psr.xml`: PSR-12;
 - `phpcs/ruleset-psr-slevomat.xml`: PSR-12, Slevomat;
 - `phpcs/ruleset-namespaces.xml`: Slevomat namespace usage.
-
-Deprecated, kept for backwards compatibility (they only include the unversioned rulesets above):
-
-- `phpcs/ruleset-psr-php83.xml`, `phpcs/ruleset-psr-php84.xml`: use `phpcs/ruleset-psr.xml`;
-- `phpcs/ruleset-psr-php83-slevomat.xml`, `phpcs/ruleset-psr-php84-slevomat.xml`: use `phpcs/ruleset-psr-slevomat.xml`.
 
 ---
 

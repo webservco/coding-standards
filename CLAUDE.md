@@ -13,7 +13,6 @@ Because of this, every path inside these configs is resolved **from the consumin
 - `phpcs/`:
   - `ruleset-psr.xml`: PSR12 only.
   - `ruleset-psr-slevomat.xml`: the same, plus the full Slevomat ruleset with a curated list of `<exclude>`s and property overrides (e.g. `FunctionLength`, `ReferenceUsedNamesOnly`, `AttributesOrder`).
-  - `ruleset-psr-phpXY.xml` / `ruleset-psr-phpXY-slevomat.xml` (8.3 and 8.4): deprecated wrappers that only include the matching unversioned ruleset via `<rule ref="./ruleset-psr[-slevomat].xml"/>`. They are kept because many projects reference them by name. Do not add rules to them and do not add new versioned files.
   - `ruleset-namespaces.xml`: a standalone set of Slevomat namespace/use rules.
 - `phpstan/`: `phpstan.neon` is the base config (level max, strict, deprecation and phpunit rules). `phpstan-symfony.neon` includes the base file and adds the Symfony extension and paths; `phpstan-symfony-doctrine.neon` includes the Symfony file and adds Doctrine. Neon `includes` of sibling files are relative to the config file, but `paths` and other locations must use `%currentWorkingDirectory%`.
 - `psalm/`: base, symfony and symfony-doctrine variants. Each variant repeats the base settings.
@@ -22,7 +21,7 @@ Because of this, every path inside these configs is resolved **from the consumin
 
 ### Editing the phpcs rulesets
 
-Rule changes go in `ruleset-psr.xml` or `ruleset-psr-slevomat.xml`; the deprecated versioned wrappers pick them up automatically.
+Rule changes go in `ruleset-psr.xml` or `ruleset-psr-slevomat.xml`. The rulesets are not versioned per PHP version; do not add versioned copies.
 
 Every `<exclude>` has a comment that gives the reason (personal preference, PSR12 conflict, etc.) and quotes the sniff's error message. Follow the same format for new excludes.
 

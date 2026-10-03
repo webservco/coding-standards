@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<ruleset name="WebServCo-CodingStandard-PHP83-Slevomat">
-	<description>Deprecated, use ruleset-psr-slevomat.xml instead. Kept for backwards compatibility.</description>
-
-    <rule ref="./ruleset-psr-slevomat.xml"/>
-</ruleset>

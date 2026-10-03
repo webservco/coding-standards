@@ -16,6 +16,18 @@ Optionally, install any of the dependencies from `require-dev` that you wish to 
 
 ---
 
+## Upgrading from v1
+
+- PHP_CodeSniffer:
+	- use `phpcs/ruleset-psr.xml` or `phpcs/ruleset-psr-slevomat.xml`; `ruleset-psr-php83*.xml` and `ruleset-psr-php84*.xml` still work but are deprecated; the PHP 7.4, 8.1 and 8.2 rulesets were removed;
+	- PHPCompatibility is no longer included: remove `phpcompatibility/php-compatibility` from your project (and any `PHPCompatibility` / `testVersion` lines from your own ruleset), then require `"squizlabs/php_codesniffer": "^4"` to get current Slevomat versions;
+	- newer Slevomat versions add sniffs (e.g. `SlevomatCodingStandard.Classes.ReadonlyClass`), so expect new errors.
+- PHPUnit: only `phpunit/phpunit-12.xml` and `phpunit/phpunit-13.xml` are provided; the `--display-*` options are now set in the configuration files and can be removed from your scripts.
+- PHPStan: stricter checks are enabled (uninitialized properties, callable signatures, possibly nonexistent array offsets, too wide return types, benevolent union types), so expect new errors.
+- Phan: requires Phan 6; `UnusedSuppressionPlugin` is enabled.
+
+---
+
 ## Components
 
 ## [Phan](https://github.com/phan/phan)
@@ -28,7 +40,7 @@ vendor/bin/phan --config-file vendor/webservco/coding-standards/phan/config.php
 
 ---
 
-## [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+## [PHP_CodeSniffer](https://github.com/PHPCSStandards/PHP_CodeSniffer)
 
 Example configuration file `.phpcs/php-coding-standard.xml`, to be placed in own project:
 
@@ -72,7 +84,6 @@ Usage:
 
 ```shell
 vendor/bin/phpmd bin,config,public,resources,src,tests json vendor/webservco/coding-standards/phpmd/phpmd-rule-set.xml
-
 ```
 
 ---
@@ -89,7 +100,7 @@ Symfony support
 Usage:
 
 ```shell
-vendor/bin/phpstan analyse bin config public resources src tests --ansi -c vendor/webservco/coding-standards/phpstan/phpstan.neon --level=max
+vendor/bin/phpstan analyse bin config public resources src tests --ansi -c vendor/webservco/coding-standards/phpstan/phpstan.neon
 ```
 
 ---

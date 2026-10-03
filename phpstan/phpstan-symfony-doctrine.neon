@@ -6,7 +6,7 @@ parameters:
     # level is needed here when using phpStorm (prevent error "No rules detected..")
     level: max
     paths:
-        - tests
+        - %currentWorkingDirectory%/tests
     excludePaths:
         analyse:
             # External file created by the framework.

@@ -17,7 +17,7 @@ Because of this, every path inside these configs is resolved **from the consumin
 - `phpstan/`: `phpstan.neon` is the base config (level max, strict, deprecation and phpunit rules). The `-symfony` and `-symfony-doctrine` variants repeat the base settings and add their own extensions/paths. They do not include the base file.
 - `psalm/`: same pattern, with base, symfony and symfony-doctrine variants.
 - `phpmd/phpmd-rule-set.xml`, `phan/config.php`: one config each.
-- `phpunit/`: one config per PHPUnit major version (9, 10, 11).
+- `phpunit/`: one config per PHPUnit major version (9, 10, 11, 13).
 
 ### Editing the phpcs rulesets
 

@@ -2,6 +2,14 @@ parameters:
     treatPhpDocTypesAsCertain: false
     # level is needed here when using phpStorm (prevent error "No rules detected..")
     level: max
+    # Stricter checks, not enabled by level max or strict-rules
+    checkBenevolentUnionTypes: true
+    checkMissingCallableSignature: true
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    checkUninitializedProperties: true
+    reportAnyTypeWideningInVarTag: true
+    reportPossiblyNonexistentConstantArrayOffset: true
+    reportPossiblyNonexistentGeneralArrayOffset: true
 includes:
     - %currentWorkingDirectory%/vendor/phpstan/phpstan-deprecation-rules/rules.neon
     - %currentWorkingDirectory%/vendor/phpstan/phpstan-phpunit/extension.neon

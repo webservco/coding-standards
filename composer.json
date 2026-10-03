@@ -18,7 +18,6 @@
         "php" : "^8.4"
     },
     "require-dev": {
-        "pds/skeleton": "^1",
         "phan/phan": "^6",
         "php-parallel-lint/php-parallel-lint": "^1",
         "php-parallel-lint/php-console-highlighter": "^1",

@@ -15,8 +15,8 @@ Because of this, every path inside these configs is resolved **from the consumin
   - `ruleset-psr-slevomat.xml`: the same, plus the full Slevomat ruleset with a curated list of `<exclude>`s and property overrides (e.g. `FunctionLength`, `ReferenceUsedNamesOnly`, `AttributesOrder`).
   - `ruleset-psr-phpXY.xml` / `ruleset-psr-phpXY-slevomat.xml` (8.3 and 8.4): deprecated wrappers that only include the matching unversioned ruleset via `<rule ref="./ruleset-psr[-slevomat].xml"/>`. They are kept because many projects reference them by name. Do not add rules to them and do not add new versioned files.
   - `ruleset-namespaces.xml`: a standalone set of Slevomat namespace/use rules.
-- `phpstan/`: `phpstan.neon` is the base config (level max, strict, deprecation and phpunit rules). The `-symfony` and `-symfony-doctrine` variants repeat the base settings and add their own extensions/paths. They do not include the base file.
-- `psalm/`: same pattern, with base, symfony and symfony-doctrine variants.
+- `phpstan/`: `phpstan.neon` is the base config (level max, strict, deprecation and phpunit rules). `phpstan-symfony.neon` includes the base file and adds the Symfony extension and paths; `phpstan-symfony-doctrine.neon` includes the Symfony file and adds Doctrine. Neon `includes` of sibling files are relative to the config file, but `paths` and other locations must use `%currentWorkingDirectory%`.
+- `psalm/`: base, symfony and symfony-doctrine variants. Each variant repeats the base settings.
 - `phpmd/phpmd-rule-set.xml`, `phan/config.php`: one config each.
 - `phpunit/`: one config per PHPUnit major version (12, 13).
 

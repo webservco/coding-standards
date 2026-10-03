@@ -96,6 +96,10 @@
         "Expected strict_types = 1, found strict_types=1." -->
 		<exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.IncorrectStrictTypesFormat" />
 
+        <!-- Deprecated sniff, replaced by DNFTypeHintFormat (also included).
+        "This sniff has been deprecated since Slevomat Coding Standard 8.16.0 and will be removed in Slevomat Coding Standard 9.0.0. Use SlevomatCodingStandard.TypeHints.DNFTypeHintFormat instead." -->
+        <exclude name="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat" />
+
         <!-- Personal preference: prefer clarity
         ("using variables from the parent scope is always automatic").
         ($y decalred in parent)

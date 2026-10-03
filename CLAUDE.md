@@ -11,7 +11,7 @@ Because of this, every path inside these configs is resolved **from the consumin
 ## Layout and conventions
 
 - `phpcs/`: one ruleset per PHP target version, in two variants:
-  - `ruleset-psr-phpXY.xml`: PHPCompatibility + PSR12 only.
+  - `ruleset-psr-phpXY.xml`: PSR12 only (the version is kept in the file name for backwards compatibility; the files are otherwise identical).
   - `ruleset-psr-phpXY-slevomat.xml`: the same, plus the full Slevomat ruleset with a curated list of `<exclude>`s and property overrides (e.g. `FunctionLength`, `ReferenceUsedNamesOnly`, `AttributesOrder`).
   - `ruleset-namespaces.xml`: a standalone set of Slevomat namespace/use rules.
 - `phpstan/`: `phpstan.neon` is the base config (level max, strict, deprecation and phpunit rules). The `-symfony` and `-symfony-doctrine` variants repeat the base settings and add their own extensions/paths. They do not include the base file.
@@ -21,8 +21,8 @@ Because of this, every path inside these configs is resolved **from the consumin
 
 ### Editing the phpcs rulesets
 
-The versioned rulesets are near-duplicates. A newer version is created by copying the previous one and changing the ruleset `name` and `<config name="testVersion">`. A rule change normally has to be **applied to every file of that variant** (for example, the FunctionLength change touched all five `*-slevomat.xml` files). The only intended differences between versions are:
-- the ruleset name and `testVersion`;
+The versioned rulesets are near-duplicates. A newer version is created by copying the previous one and changing the ruleset `name`. A rule change normally has to be **applied to every file of that variant** (for example, the FunctionLength change touched all five `*-slevomat.xml` files). The only intended differences between versions are:
+- the ruleset name;
 - the 7.4 slevomat ruleset does not have the PHP 8 feature excludes (constructor promotion, nullsafe operator, non-capturing catch).
 
 Every `<exclude>` has a comment that gives the reason (personal preference, PSR12 conflict, etc.) and quotes the sniff's error message. Follow the same format for new excludes.

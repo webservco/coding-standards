@@ -2,7 +2,7 @@
 
 A collection of coding standards and configuration files.
 
-Custom, opinionated coding standards based on [PSR12](https://www.php-fig.org/psr/psr-12/), [SlevomatCodingStandard](https://github.com/slevomat/coding-standard), and [PHPCompatibility](https://github.com/PHPCompatibility/PHPCompatibility).
+Custom, opinionated coding standards based on [PSR12](https://www.php-fig.org/psr/psr-12/) and [SlevomatCodingStandard](https://github.com/slevomat/coding-standard).
 
 ---
 
@@ -35,7 +35,7 @@ Example configuration file `.phpcs/php-coding-standard.xml`, to be placed in own
 ```xml
 <?xml version="1.0"?>
 <ruleset name="WebServCo-CodingStandard-PHP83">
-	<description>Custom, opinionated coding standards based on PSR12, SlevomatCodingStandard, and PHPCompatibility.</description>
+	<description>Custom, opinionated coding standards based on PSR12 and SlevomatCodingStandard.</description>
     <rule ref="vendor/webservco/coding-standards/phpcs/ruleset-psr-php83-slevomat.xml">
         <properties>
 			<property name="rootNamespaces" type="array">

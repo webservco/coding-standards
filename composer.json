@@ -1,7 +1,7 @@
 {
     "name": "webservco/coding-standards",
     "type" : "phpcodesniffer-standard",
-    "description": "Custom, opinionated coding standards based on PSR12, SlevomatCodingStandard, and PHPCompatibility.",
+    "description": "Custom, opinionated coding standards based on PSR12 and SlevomatCodingStandard.",
     "keywords": [
         "webservco",
         "coding-standard"
@@ -22,7 +22,6 @@
         "phan/phan": "^6",
         "php-parallel-lint/php-parallel-lint": "^1",
         "php-parallel-lint/php-console-highlighter": "^1",
-        "phpcompatibility/php-compatibility": "^9",
         "phpmd/phpmd": "^2",
         "phpstan/phpstan-doctrine": "^2",
         "phpstan/phpstan-deprecation-rules": "^2",
@@ -33,7 +32,7 @@
         "phpunit/phpunit": "^13",
         "psalm/plugin-symfony": "^5",
         "slevomat/coding-standard": "^8",
-        "squizlabs/php_codesniffer" : "^3",
+        "squizlabs/php_codesniffer" : "^4",
         "vimeo/psalm": "^6",
         "weirdan/doctrine-psalm-plugin": "^2"
     },

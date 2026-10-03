@@ -101,7 +101,7 @@ Composer scripts example:
 ```json
 {
 	"scripts": {
-		"test" : "XDEBUG_MODE=coverage vendor/bin/phpunit --colors=always --configuration vendor/webservco/coding-standards/phpunit/phpunit-13.xml --display-deprecations --display-errors --display-incomplete --display-notices --display-skipped --display-warnings",
+		"test" : "XDEBUG_MODE=coverage vendor/bin/phpunit --colors=always --configuration vendor/webservco/coding-standards/phpunit/phpunit-13.xml",
         "test:dox" : "@test --testdox"
 	}
 }

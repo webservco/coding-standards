@@ -5,6 +5,7 @@
   cacheDirectory="./../../../../var/tmp/phpunit/.phpunit.cache"
   beStrictAboutCoverageMetadata="true"
   beStrictAboutOutputDuringTests="true"
+  displayDetailsOnAllIssues="true"
   executionOrder="depends,defects"
   failOnRisky="true"
   failOnWarning="true"

@@ -6,26 +6,48 @@
         http://pmd.sf.net/ruleset_xml_schema.xsd"
         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
     <description>
-        Custom rule set, includes all rules available in PHPMD.
+        Custom rule set, includes all rules available in PHPMD (requires PHPMD 3).
     </description>
 
     <rule ref="rulesets/cleancode.xml" />
     <rule ref="rulesets/codesize.xml" />
-    <rule ref="rulesets/controversial.xml" />
+    <rule ref="rulesets/controversial.xml">
+        <!-- Need to exclude rule in order to have custom configuration for it.
+        Note: PHPMD 3 (#664) can override properties without excluding, but with XML rule sets
+        the default rule instance still runs alongside the configured one. -->
+        <exclude name="CamelCaseNamespace" />
+    </rule>
     <rule ref="rulesets/design.xml" />
     <rule ref="rulesets/naming.xml">
         <!-- Need to exclude rule in order to have custom configuration for it -->
         <exclude name="LongClassName" />
+        <exclude name="LongMethodName" />
         <exclude name="LongVariable" />
         <exclude name="ShortVariable" />
     </rule>
+    <rule ref="rulesets/unusedcode.xml" />
+
     <!-- Custom rule configuration -->
+    <rule ref="rulesets/controversial.xml/CamelCaseNamespace">
+        <properties>
+            <!-- Allow established names.
+            "The name cURL in namespace WebServCo\Http\Client\Service\cURL is not named in CamelCase." -->
+            <property name="exceptions" value="cURL" />
+        </properties>
+    </rule>
     <rule ref="rulesets/naming.xml/LongClassName">
         <properties>
-            <!-- https://phpmd.org//rules//naming.html#longvariable
-            "Comma-separated list of suffixes that will not count in the length of the variable name.
+            <!-- https://phpmd.org/rules/naming.html#longclassname
+            "Comma-separated list of suffixes that will not count in the length of the class name.
             Only the first matching suffix will be subtracted." -->
             <property name="subtract-suffixes" value="Class,Container,Controller,Factory,Helper,Instantiator,Instantiators,Interface,Module,Processor,Service,Test,Tester" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/naming.xml/LongMethodName">
+        <properties>
+            <!-- default is 40; descriptive method names (especially test methods) are preferred.
+            "Avoid using long method names like ...(). The configured maximum method name length is 40." -->
+            <property name="maximum" value="90" />
         </properties>
     </rule>
     <rule ref="rulesets/naming.xml/LongVariable">
@@ -39,5 +61,4 @@
             <property name="exceptions" value="cc,eu,id,to,v1,v2,v3,v4" />
         </properties>
     </rule>
-    <rule ref="rulesets/unusedcode.xml" />
 </ruleset>

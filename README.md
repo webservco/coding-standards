@@ -75,11 +75,17 @@ Rulesets:
 
 ## [PHPMD](https://github.com/phpmd/phpmd)
 
+Requires PHPMD 3 (`"phpmd/phpmd": "^3"`). The rule set uses PHPMD 3 only rules, so it does not work with PHPMD 2.
+
 Usage:
 
 ```shell
-vendor/bin/phpmd bin,config,public,resources,src,tests json vendor/webservco/coding-standards/phpmd/phpmd-rule-set.xml
+vendor/bin/phpmd analyze --no-progress --format json --ruleset vendor/webservco/coding-standards/phpmd/phpmd-rule-set.xml bin config public resources src tests
 ```
+
+Paths are separated by spaces; comma-separated paths are only accepted by the deprecated PHPMD 2 style command (`phpmd <paths> <format> <ruleset>`).
+
+Suppressing warnings: prefer the `#[\PHPMD\Attribute\SuppressWarnings(...)]` attribute; `@SuppressWarnings` annotations are deprecated in PHPMD 3 and are not checked by the `UnusedSuppression` rule.
 
 ---
 

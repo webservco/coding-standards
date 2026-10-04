@@ -17,6 +17,7 @@ Because of this, every path inside these configs is resolved **from the consumin
 - `phpstan/`: `phpstan.neon` is the base config (level max, strict, deprecation and phpunit rules). `phpstan-symfony.neon` includes the base file and adds the Symfony extension and paths; `phpstan-symfony-doctrine.neon` includes the Symfony file and adds Doctrine. Neon `includes` of sibling files are relative to the config file, but `paths` and other locations must use `%currentWorkingDirectory%`.
 - `psalm/`: base, symfony and symfony-doctrine variants. Each variant repeats the base settings.
 - `phpmd/phpmd-rule-set.xml`, `phan/config.php`: one config each.
+- `phpmd/phpmd-rule-set.xml` targets PHPMD 3 (`composer.json` declares a conflict with `phpmd/phpmd <3`). To configure a rule, exclude it from its rule set and reference it again with properties: PHPMD 3 accepts a property override without the exclude, but with XML rule sets the default rule instance keeps running next to the configured one.
 - `phpunit/`: one config per PHPUnit major version (12, 13).
 
 ### Editing the phpcs rulesets

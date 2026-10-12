@@ -1,7 +1,7 @@
 {
     "name": "webservco/coding-standards",
     "type" : "phpcodesniffer-standard",
-    "description": "Custom, opinionated coding standards based on PSR12 and SlevomatCodingStandard.",
+    "description": "A collection of coding standards and configuration files. Shared, opinionated configuration for PHP_CodeSniffer, PHPStan, Psalm, Phan, PHPMD and PHPUnit, based on PSR-12 and Slevomat Coding Standard.",
     "keywords": [
         "webservco",
         "coding-standard"

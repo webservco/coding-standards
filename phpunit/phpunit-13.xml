@@ -17,7 +17,7 @@
       <directory>./../../../../tests/Unit</directory>
     </testsuite>
   </testsuites>
-  <coverage includeUncoveredFiles="true" pathCoverage="true">
+  <coverage includeUncoveredFiles="true">
     <report>
       <clover outputFile="./../../../../var/tmp/phpunit/coverage-report.xml"/>
     </report>

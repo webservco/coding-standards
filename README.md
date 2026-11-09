@@ -71,6 +71,8 @@ The PHPMD rule set uses rules that only exist in PHPMD 3, and `composer.json` co
 
 The PHPUnit configs set the `--display-*` options and write coverage to `var/tmp/phpunit/`. With ddev, run `ddev xdebug on` first.
 
+The configs collect line coverage. That is enough for the coverage metadata checks (`requireCoverageMetadata`, `beStrictAboutCoverageMetadata`), which only run with coverage on, and SonarQube imports only line hits from the clover report. For path and branch coverage, add `--path-coverage` to the command. It's much slower on large test suites, because the number of paths grows with every decision in a function. PHPUnit can turn path coverage on from the command line, but not off, so the configs leave it off. Under path coverage, Xdebug 3.5.3 crashed PHP when one generator looped over another.
+
 ### Upgrading from v1
 
 - PHP_CodeSniffer: replace `phpcs/ruleset-psr-phpXY.xml` with `phpcs/ruleset-psr.xml`, and `phpcs/ruleset-psr-phpXY-slevomat.xml` with `phpcs/ruleset-psr-slevomat.xml`. PHPCompatibility is gone: remove `phpcompatibility/php-compatibility` and any `PHPCompatibility` or `testVersion` lines, then require `"squizlabs/php_codesniffer": "^4"`. Newer Slevomat versions add sniffs such as `SlevomatCodingStandard.Classes.ReadonlyClass`, so expect new errors.
